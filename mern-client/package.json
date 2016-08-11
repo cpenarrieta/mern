@@ -6,8 +6,10 @@
     "react-scripts": "0.2.1"
   },
   "dependencies": {
+    "lodash": "^4.14.2",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "xhr": "^2.2.2"
   },
   "scripts": {
     "start": "react-scripts start",
