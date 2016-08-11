@@ -10,7 +10,7 @@ mongod
 ## Run Api Backend
 ```
 cd mern-api
-node index.js
+npm start
 ```
 
 ## Run React Client
