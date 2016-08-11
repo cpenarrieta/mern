@@ -3,6 +3,8 @@ const Course = require('./courseModel');
 exports.get = (req, res, next) => {
   Course
     .find({})
+    .populate({ "path" : "teacher", "select" : "-password" })
+    .populate({ "path" : "students", "select" : "-password" })
     .exec()
     .then((courses) => {
       res.json(courses);
@@ -28,6 +30,8 @@ exports.post = (req, res, next) => {
 exports.getOne = (req, res, next) => {
   Course
     .findById(req.params.id)
+    .populate({ "path" : "teacher", "select" : "-password" })
+    .populate({ "path" : "students", "select" : "-password" })
     .exec()
     .then((course) => {
       res.json(course);
