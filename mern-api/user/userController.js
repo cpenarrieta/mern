@@ -4,11 +4,10 @@ const _ = require('lodash');
 exports.get = (req, res, next) => {
   User
     .find({})
+    .select('-password')
     .exec()
     .then((users) => {
-      res.json(_.map(users, (user) => {
-        return user.toJson();
-      }));
+      res.json(users);
     })
     .catch((err) => {
       next(err);
@@ -31,9 +30,10 @@ exports.post = (req, res, next) => {
 exports.getOne = (req, res, next) => {
   User
     .findById(req.params.id)
+    .select('-password')
     .exec()
     .then((user) => {
-      res.json(user.toJson());
+      res.json(user);
     })
     .catch((err) => {
       next(err);
